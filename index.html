@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Швейная Мастерская - Качественный пошив и ремонт одежды</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Стили для карусели с параллаксом */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.1s ease;
+      margin-top: 40px; /* Отступ сверху для изображений */
+    }
+    .carousel-text {
+      text-align: center;
+      color: white;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 0 0 12px 12px;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-controls button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    /* Анимация для кнопок */
+    .btn-hover {
+      transition: all 0.3s ease;
+    }
+    .btn-hover:hover {
+      transform: scale(1.05);
+      background-color: #d97706;
+    }
+    /* Прозрачный фон для контента */
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="font-sans text-white bg-gray-900">
+  <!-- Карусель -->
+  <section class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img/pexels-photo-1598502.jpeg" alt="Швейная ткань" class="parallax-img">
+        <div class="carousel-text">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Швейная Мастерская</h2>
+          <p class="text-lg md:text-xl">Индивидуальный подход к каждому клиенту</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo_2025-05-31_16-27-57.jpg" alt="Швейная машина" class="parallax-img">
+        <div class="carousel-text">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Качественный пошив</h2>
+          <p class="text-lg md:text-xl">С использованием лучших материалов</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo_2025-05-31_16-28-02.jpg" alt="Работа с тканью" class="parallax-img">
+        <div class="carousel-text">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Эксклюзивные модели</h2>
+          <p class="text-lg md:text-xl">Создадим одежду вашей мечты</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </section>
+
+  <!-- Основной контент -->
+  <div class="content-overlay">
+    <!-- Заголовок -->
+    <header class="text-center py-16">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Швейная Мастерская</h1>
+      <p class="text-xl md:text-2xl mb-8">Качественный пошив и ремонт одежды на заказ</p>
+      <a href="#contact" class="bg-amber-500 text-white px-6 py-3 rounded-lg text-lg btn-hover">Заказать услугу</a>
+    </header>
+
+    <!-- Секция услуг -->
+    <section class="py-16 px-4 md:px-16 bg-gray-900 bg-opacity-80">
+      <h2 class="text-4xl font-bold text-center mb-12">Наши услуги</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Пошив одежды</h3>
+          <p>Создаем уникальную одежду по вашим меркам: платья, костюмы, пальто и многое другое.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Ремонт одежды</h3>
+          <p>Быстро и качественно ремонтируем одежду: замена молний, подгонка по фигуре, штопка.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Индивидуальный дизайн</h3>
+          <p>Разрабатываем эксклюзивные модели для особых случаев с учетом ваших пожеланий.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция о нас -->
+    <section class="py-16 px-4 md:px-16 text-center">
+      <h2 class="text-4xl font-bold mb-8">О нас</h2>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto">Мы — команда профессионалов с многолетним опытом в швейном деле. Наша миссия — создавать одежду, которая подчеркивает вашу индивидуальность и дарит комфорт. Используем только качественные материалы и современное оборудование.</p>
+    </section>
+
+    <!-- Контактная форма -->
+    <section id="contact" class="py-16 px-4 md:px-16 bg-gray-900 bg-opacity-80">
+      <h2 class="text-4xl font-bold text-center mb-12">Свяжитесь с нами</h2>
+      <div class="max-w-lg mx-auto">
+        <div class="space-y-4">
+          <input type="text" placeholder="Ваше имя" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-amber-500">
+          <input type="email" placeholder="Ваш email" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-amber-500">
+          <textarea placeholder="Ваше сообщение" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-amber-500 h-32"></textarea>
+          <button class="w-full bg-amber-500 text-white px-6 py-3 rounded-lg text-lg btn-hover">Отправить</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-8 text-center bg-gray-900 bg-opacity-80">
+      <p>© 2025 Швейная Мастерская. Все права защищены.</p>
+      <p class="mt-2">Телефон: +7 (999) 123-45-67 | Email: info@sewingstudio.ru</p>
+    </footer>
+  </div>
+
+  <script>
+    // Логика карусели
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      const carouselInner = document.querySelector('.carousel-inner');
+      if (index >= totalSlides) currentSlide = 0;
+      if (index < 0) currentSlide = totalSlides - 1;
+      carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+
+    // Автоматическое переключение каждые 5 секунд
+    setInterval(nextSlide, 5000);
+
+    // Эффект параллакса
+    window.addEventListener('scroll', () => {
+      const parallaxImages = document.querySelectorAll('.parallax-img');
+      parallaxImages.forEach(img => {
+        const speed = 0.2;
+        const offset = window.pageYOffset * speed;
+        img.style.transform = `translateY(${offset}px)`;
+      });
+    });
+
+    // Валидация формы
+    document.querySelector('button').addEventListener('click', () => {
+      const name = document.querySelector('input[type="text"]').value;
+      const email = document.querySelector('input[type="email"]').value;
+      const message = document.querySelector('textarea').value;
+
+      if (name && email && message) {
+        alert('Сообщение отправлено! Мы свяжемся с вами скоро.');
+      } else {
+        alert('Пожалуйста, заполните все поля.');
+      }
+    });
+  </script>
+</body>
+</html>
